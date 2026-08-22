@@ -240,6 +240,20 @@ function openWhatsApp() {
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
+// Mobile navigation toggle
+document.querySelectorAll('.nav-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        const ul = btn.closest('.nav-container').querySelector('nav ul');
+        if (ul) ul.classList.toggle('open');
+    });
+});
+document.querySelectorAll('nav ul li a').forEach(function (a) {
+    a.addEventListener('click', function () {
+        const ul = a.closest('nav ul');
+        if (ul) ul.classList.remove('open');
+    });
+});
+
 // Lightbox - click any image to view it larger
 (function initLightbox() {
     const lb = document.createElement('div');

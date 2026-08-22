@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
 
 * {
     margin: 0;
@@ -111,6 +111,17 @@ nav a:hover {
 
 .lang-switch:hover {
     background: var(--white);
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+    padding: 4px 10px;
+    line-height: 1;
 }
 
 /* Hero Section */
@@ -347,10 +358,6 @@ nav a:hover {
     font-weight: 900;
     color: var(--primary);
     margin-bottom: 10px;
-    font-family: 'Playfair Display', serif;
-}
-
-.section-title h2[data-i18n="products_title"] {
     font-family: 'Cairo', sans-serif;
 }
 
@@ -763,13 +770,36 @@ footer {
 @media (max-width: 768px) {
     .nav-container {
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 10px;
     }
-    
+
+    .nav-toggle {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        order: 3;
+    }
+
     nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        background: var(--primary);
+        padding: 8px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 12px 20px;
+        display: block;
+        border-top: 1px solid rgba(255,255,255,0.08);
     }
     
     .hero-text h2 {
