@@ -271,11 +271,13 @@ nav a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 450px;
-    height: 450px;
+    width: 390px;
+    height: 390px;
+    box-sizing: border-box;
     border-radius: 50%;
     background: #fff;
-    padding: 30px;
+    padding: 22px;
+    overflow: hidden;
     box-shadow: 0 8px 24px rgba(198, 156, 82, 0.45);
     z-index: 5;
 }
@@ -832,9 +834,9 @@ footer {
     }
 
     .orbit-center {
-        width: 200px;
-        height: 200px;
-        padding: 16px;
+        width: 195px;
+        height: 195px;
+        padding: 14px;
     }
 }
 
