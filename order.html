@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب منتجات - الركن السويسري</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .order-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .order-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .order-summary {
+            background: var(--gray);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .order-summary h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gold);
+        }
+        
+        .product-select {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .product-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .product-option:hover {
+            border-color: var(--gold);
+        }
+        
+        .product-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--gold);
+        }
+        
+        .product-option img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            border-radius: 14px;
+            background: var(--gray);
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(11, 38, 29, 0.10);
+            flex-shrink: 0;
+        }
+        
+        .product-option span {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-select {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="الركن السويسري" class="logo-img">
+                <div class="logo-text">
+                    <h1>الركن السويسري</h1>
+                    <span data-i18n="hero_subtitle">لصناعة الورق الصحي والأصباغ والمنظفات</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">عن الشركة</a></li>
+                    <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                    <li><a href="order.html" data-i18n="nav_order">طلب منتجات</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <button class="lang-switch" onclick="switchLang()">EN</button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1 data-i18n="order_title">طلب منتجات</h1>
+        <p data-i18n="order_heading">أدخل بيانات الطلب</p>
+    </section>
+
+    <!-- Order Form -->
+    <div class="order-container">
+        <form class="order-form" onsubmit="submitOrder(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-i18n="name">الاسم الكامل</label>
+                    <input type="text" required data-i18n-placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="phone">رقم الهاتف</label>
+                    <input type="tel" required data-i18n-placeholder="phone">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-i18n="email">البريد الإلكتروني</label>
+                    <input type="email" data-i18n-placeholder="email">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="address">العنوان</label>
+                    <input type="text" required data-i18n-placeholder="address">
+                </div>
+            </div>
+
+            <h3 style="margin: 25px 0 15px; color: var(--primary);">اختر المنتجات</h3>
+            
+            <div class="product-select">
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="dish-lemon-small" onchange="updateSummary()">
+                    <span>سائل جلي بنكهة الليمون حجم صغير</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="dish-strawberry-small" onchange="updateSummary()">
+                    <span>سائل جلي بنكهة الفراولة حجم صغير</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="dish-lemonmint-small" onchange="updateSummary()">
+                    <span>سائل جلي بنكهة الليمون والنعناع حجم صغير</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="dish-lemon-1800" onchange="updateSummary()">
+                    <span>سائل جلي بنكهة الليمون 1800 مل</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="dish-strawberry-1800" onchange="updateSummary()">
+                    <span>سائل جلي بنكهة الفراولة 1800 مل</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="belsan-perfumed" onchange="updateSummary()">
+                    <span>بيلسان معطر</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="belsan-kitchen-roll" onchange="updateSummary()">
+                    <span>بيلسان رول مطبخ</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="tissue-belsan" onchange="updateSummary()">
+                    <span>مناديل بيلسان</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="tissue-purple" onchange="updateSummary()">
+                    <span>مناديل أرجوان</span>
+                </label>
+                
+                <label class="product-option">
+                    <input type="checkbox" name="product" value="laundry-powder" onchange="updateSummary()">
+                    <span>مسحوق غسيل بيلسان</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label data-i18n="notes">ملاحظات إضافية</label>
+                <textarea data-i18n-placeholder="notes"></textarea>
+            </div>
+
+            <div class="order-summary">
+                <h3>ملخص الطلب</h3>
+                <div id="summary-items"></div>
+                <div class="summary-total">
+                    <span>المنتجات المختارة</span>
+                    <span id="total-price">0</span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;" data-i18n="submit">إرسال الطلب</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 data-i18n="footer_about">عن الشركة</h3>
+                <p data-i18n="footer_about_desc">الركن السويسري لصناعة الورق الصحي والأصباغ والمنظفات. نقدم منتجات منزلية عالية الجودة منذ سنوات.</p>
+            </div>
+            <div class="footer-col">
+                <h3 data-i18n="footer_links">روابط سريعة</h3>
+                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+                <a href="about.html" data-i18n="nav_about">عن الشركة</a>
+                <a href="products.html" data-i18n="nav_products">المنتجات</a>
+                <a href="order.html" data-i18n="nav_order">طلب منتجات</a>
+            </div>
+            <div class="footer-col">
+                <h3 data-i18n="footer_contact">تواصل معنا</h3>
+                <p>📍 المملكة الأردنية الهاشمية - الرمثا</p>
+                <p>📞 962-796009232</p>
+                <p>✉️ goldentimekw@hotmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h3>تابعنا</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 الركن السويسري. <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/962796009232" class="whatsapp-btn" target="_blank">💬</a>
+
+    <script src="js/main.js"></script>
+    <script>
+        const productNames = {
+            'dish-lemon-small': 'سائل جلي بنكهة الليمون حجم صغير',
+            'dish-strawberry-small': 'سائل جلي بنكهة الفراولة حجم صغير',
+            'dish-lemonmint-small': 'سائل جلي بنكهة الليمون والنعناع حجم صغير',
+            'dish-lemon-1800': 'سائل جلي بنكهة الليمون 1800 مل',
+            'dish-strawberry-1800': 'سائل جلي بنكهة الفراولة 1800 مل',
+            'belsan-perfumed': 'بيلسان معطر',
+            'belsan-kitchen-roll': 'بيلسان رول مطبخ',
+            'tissue-belsan': 'مناديل بيلسان',
+            'tissue-purple': 'مناديل أرجوان',
+            'laundry-powder': 'مسحوق غسيل بيلسان'
+        };
+        
+        function updateSummary() {
+            const checkboxes = document.querySelectorAll('input[name="product"]:checked');
+            const summaryDiv = document.getElementById('summary-items');
+            const totalSpan = document.getElementById('total-price');
+            
+            let html = '';
+            let count = 0;
+            
+            checkboxes.forEach(cb => {
+                html += `<div class="summary-item">
+                    <span>${productNames[cb.value]}</span>
+                    <span>✓</span>
+                </div>`;
+                count++;
+            });
+            
+            summaryDiv.innerHTML = html || '<p style="color: #999; text-align: center;">اختر منتجات للطلب</p>';
+            totalSpan.textContent = count;
+        }
+        
+        function submitOrder(e) {
+            e.preventDefault();
+            alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
+        }
+    </script>
+</body>
+</html>
