@@ -289,3 +289,15 @@ document.querySelectorAll('nav ul li a').forEach(function (a) {
         bind();
     }
 })();
+
+// Hero slideshow - fade in/out product images behind the big logo
+(function initHeroSlideshow() {
+    const slides = document.querySelectorAll('.hero-slideshow .hero-slide');
+    if (!slides.length) return;
+    let idx = 0;
+    setInterval(function () {
+        slides[idx].classList.remove('active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('active');
+    }, 3000);
+})();
