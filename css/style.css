@@ -20,7 +20,7 @@ img {
     --white: #ffffff;
     --gray: #f4f1ea;
     --text: #4a2c52;
-    --grad: linear-gradient(135deg, #f9c9da 0%, #e3c6f5 100%);
+    --grad: linear-gradient(135deg, #fde4ee 0%, #f9c9da 100%);
 }
 
 body {
