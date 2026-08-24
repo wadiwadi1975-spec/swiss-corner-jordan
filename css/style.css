@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+img {
+    border-radius: 16px;
+}
+
 :root {
     --primary: #0b261d;
     --secondary: #0f2f24;
