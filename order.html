@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  -  </title>
+    <title>طلب منتجات - الركن السويسري لصناعة الورق الصحي والأصباغ والمنظفات</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/icon-180.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
@@ -173,57 +173,57 @@
                 </div>
             </div>
 
-            <h3 style="margin: 25px 0 15px; color: var(--primary);"> </h3>
+            <h3 style="margin: 25px 0 15px; color: var(--primary);">اختر منتجاتك</h3>
             
             <div class="product-select">
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-lemon-small" onchange="updateSummary()">
-                    <span>     </span>
+                    <span>سائل جلي بيلسان ليمون (صغير)</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-strawberry-small" onchange="updateSummary()">
-                    <span>     </span>
+                    <span>سائل جلي بيلسان فراولة (صغير)</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-lemonmint-small" onchange="updateSummary()">
-                    <span>      </span>
+                    <span>سائل جلي بيلسان ليمون نعناع (صغير)</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-lemon-1800" onchange="updateSummary()">
-                    <span>    1800 </span>
+                    <span>سائل جلي بيلسان ليمون 1800</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-strawberry-1800" onchange="updateSummary()">
-                    <span>    1800 </span>
+                    <span>سائل جلي بيلسان فراولة 1800</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="belsan-perfumed" onchange="updateSummary()">
-                    <span> </span>
+                    <span>معطر بيلسان</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="belsan-kitchen-roll" onchange="updateSummary()">
-                    <span>  </span>
+                    <span>ورق مطبخ بيلسان</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="tissue-belsan" onchange="updateSummary()">
-                    <span> </span>
+                    <span>مناديل بيلسان</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="tissue-purple" onchange="updateSummary()">
-                    <span> </span>
+                    <span>مناديل بنفسجي بيلسان</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="laundry-powder" onchange="updateSummary()">
-                    <span>  </span>
+                    <span>مسحوق غسيل بيلسان</span>
                 </label>
             </div>
 
@@ -233,10 +233,10 @@
             </div>
 
             <div class="order-summary">
-                <h3> </h3>
+                <h3>ملخص الطلب</h3>
                 <div id="summary-items"></div>
                 <div class="summary-total">
-                    <span> </span>
+                    <span>الإجمالي</span>
                     <span id="total-price">0</span>
                 </div>
             </div>
@@ -282,16 +282,16 @@
     <script src="js/main.js"></script>
     <script>
         const productNames = {
-            'dish-lemon-small': '     ',
-            'dish-strawberry-small': '     ',
-            'dish-lemonmint-small': '      ',
-            'dish-lemon-1800': '    1800 ',
-            'dish-strawberry-1800': '    1800 ',
-            'belsan-perfumed': ' ',
-            'belsan-kitchen-roll': '  ',
-            'tissue-belsan': ' ',
-            'tissue-purple': ' ',
-            'laundry-powder': '  '
+            'dish-lemon-small': 'سائل جلي بيلسان ليمون (صغير)',
+            'dish-strawberry-small': 'سائل جلي بيلسان فراولة (صغير)',
+            'dish-lemonmint-small': 'سائل جلي بيلسان ليمون نعناع (صغير)',
+            'dish-lemon-1800': 'سائل جلي بيلسان ليمون 1800',
+            'dish-strawberry-1800': 'سائل جلي بيلسان فراولة 1800',
+            'belsan-perfumed': 'معطر بيلسان',
+            'belsan-kitchen-roll': 'ورق مطبخ بيلسان',
+            'tissue-belsan': 'مناديل بيلسان',
+            'tissue-purple': 'مناديل بنفسجي بيلسان',
+            'laundry-powder': 'مسحوق غسيل بيلسان'
         };
         
         function updateSummary() {
@@ -310,13 +310,13 @@
                 count++;
             });
             
-            summaryDiv.innerHTML = html || '<p style="color: #999; text-align: center;">  </p>';
+            summaryDiv.innerHTML = html || '<p style="color: #999; text-align: center;">لم يتم تحديد أي منتجات بعد</p>';
             totalSpan.textContent = count;
         }
         
         function submitOrder(e) {
             e.preventDefault();
-            alert('   !   .');
+            alert('تم إرسال طلبك بنجاح! سنتواصل معك في أقرب وقت.');
         }
     </script>
 </body>
