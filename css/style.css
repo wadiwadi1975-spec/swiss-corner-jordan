@@ -189,14 +189,7 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-.hero-logo-big {
-    position: relative;
-    z-index: 2;
-    max-width: 380px;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 28px;
+.hero-slide--logo {
     background: rgba(255, 255, 255, 0.92);
     padding: 18px;
     box-shadow: 0 20px 55px rgba(198, 156, 82, 0.40);
@@ -775,8 +768,8 @@ footer {
         justify-content: center;
     }
     
-    .hero-logo-big {
-        max-width: 360px;
+    .hero-slide--logo {
+        padding: 14px;
     }
     
     .features-grid {
