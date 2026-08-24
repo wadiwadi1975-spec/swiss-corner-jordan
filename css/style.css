@@ -462,18 +462,21 @@ nav a:hover {
 .product-image {
     width: 100%;
     height: 200px;
-    object-fit: contain;
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
     border-bottom: 3px solid var(--gold);
-    border-radius: 15px 15px 0 0;
+    border-radius: 18px;
+    overflow: hidden;
 }
 
 .product-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 22px;
+    border-radius: 16px;
 }
 
 .product-image.bg-tissue {
