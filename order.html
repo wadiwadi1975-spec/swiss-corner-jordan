@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طلب منتجات - الركن السويسري</title>
+    <title>??? ?????? - ????? ????????</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/icon-180.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="الركن السويسري">
+    <meta name="apple-mobile-web-app-title" content="????? ????????">
     <style>
         .order-container {
             max-width: 900px;
@@ -122,30 +122,30 @@
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="الركن السويسري" class="logo-img">
+                <img src="images/logo.png" alt="????? ????????" class="logo-img">
                 <div class="logo-text">
-                    <h1>الركن السويسري</h1>
-                    <span data-i18n="hero_subtitle">لصناعة الورق الصحي والأصباغ والمنظفات</span>
+                    <h1>????? ????????</h1>
+                    <span data-i18n="hero_subtitle">?????? ????? ????? ???????? ?????????</span>
                 </div>
             </a>
             <nav>
                 <ul>
-                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
-                    <li><a href="about.html" data-i18n="nav_about">عن الشركة</a></li>
-                    <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
-                    <li><a href="order.html" data-i18n="nav_order">طلب منتجات</a></li>
-                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">????????</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">?? ??????</a></li>
+                    <li><a href="products.html" data-i18n="nav_products">????????</a></li>
+                    <li><a href="order.html" data-i18n="nav_order">??? ??????</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">????? ????</a></li>
                 </ul>
             </nav>
             <button class="lang-switch" onclick="switchLang()">EN</button>
-                <button class="nav-toggle" aria-label="القائمة">☰</button>
+                <button class="nav-toggle" aria-label="???????">?</button>
         </div>
     </header>
 
     <!-- Page Header -->
     <section class="page-header">
-        <h1 data-i18n="order_title">طلب منتجات</h1>
-        <p data-i18n="order_heading">أدخل بيانات الطلب</p>
+        <h1 data-i18n="order_title">??? ??????</h1>
+        <p data-i18n="order_heading">???? ?????? ?????</p>
     </section>
 
     <!-- Order Form -->
@@ -153,95 +153,95 @@
         <form class="order-form" onsubmit="submitOrder(event)">
             <div class="form-row">
                 <div class="form-group">
-                    <label data-i18n="name">الاسم الكامل</label>
+                    <label data-i18n="name">????? ??????</label>
                     <input type="text" required data-i18n-placeholder="name">
                 </div>
                 <div class="form-group">
-                    <label data-i18n="phone">رقم الهاتف</label>
+                    <label data-i18n="phone">??? ??????</label>
                     <input type="tel" required data-i18n-placeholder="phone">
                 </div>
             </div>
             
             <div class="form-row">
                 <div class="form-group">
-                    <label data-i18n="email">البريد الإلكتروني</label>
+                    <label data-i18n="email">?????? ??????????</label>
                     <input type="email" data-i18n-placeholder="email">
                 </div>
                 <div class="form-group">
-                    <label data-i18n="address">العنوان</label>
+                    <label data-i18n="address">???????</label>
                     <input type="text" required data-i18n-placeholder="address">
                 </div>
             </div>
 
-            <h3 style="margin: 25px 0 15px; color: var(--primary);">اختر المنتجات</h3>
+            <h3 style="margin: 25px 0 15px; color: var(--primary);">???? ????????</h3>
             
             <div class="product-select">
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-lemon-small" onchange="updateSummary()">
-                    <span>سائل جلي بنكهة الليمون حجم صغير</span>
+                    <span>???? ??? ????? ??????? ??? ????</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-strawberry-small" onchange="updateSummary()">
-                    <span>سائل جلي بنكهة الفراولة حجم صغير</span>
+                    <span>???? ??? ????? ???????? ??? ????</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-lemonmint-small" onchange="updateSummary()">
-                    <span>سائل جلي بنكهة الليمون والنعناع حجم صغير</span>
+                    <span>???? ??? ????? ??????? ???????? ??? ????</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-lemon-1800" onchange="updateSummary()">
-                    <span>سائل جلي بنكهة الليمون 1800 مل</span>
+                    <span>???? ??? ????? ??????? 1800 ??</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="dish-strawberry-1800" onchange="updateSummary()">
-                    <span>سائل جلي بنكهة الفراولة 1800 مل</span>
+                    <span>???? ??? ????? ???????? 1800 ??</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="belsan-perfumed" onchange="updateSummary()">
-                    <span>بيلسان معطر</span>
+                    <span>?????? ????</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="belsan-kitchen-roll" onchange="updateSummary()">
-                    <span>بيلسان رول مطبخ</span>
+                    <span>?????? ??? ????</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="tissue-belsan" onchange="updateSummary()">
-                    <span>مناديل بيلسان</span>
+                    <span>?????? ??????</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="tissue-purple" onchange="updateSummary()">
-                    <span>مناديل أرجوان</span>
+                    <span>?????? ??????</span>
                 </label>
                 
                 <label class="product-option">
                     <input type="checkbox" name="product" value="laundry-powder" onchange="updateSummary()">
-                    <span>مسحوق غسيل بيلسان</span>
+                    <span>????? ???? ??????</span>
                 </label>
             </div>
 
             <div class="form-group">
-                <label data-i18n="notes">ملاحظات إضافية</label>
+                <label data-i18n="notes">??????? ??????</label>
                 <textarea data-i18n-placeholder="notes"></textarea>
             </div>
 
             <div class="order-summary">
-                <h3>ملخص الطلب</h3>
+                <h3>???? ?????</h3>
                 <div id="summary-items"></div>
                 <div class="summary-total">
-                    <span>المنتجات المختارة</span>
+                    <span>???????? ????????</span>
                     <span id="total-price">0</span>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;" data-i18n="submit">إرسال الطلب</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;" data-i18n="submit">????? ?????</button>
         </form>
     </div>
 
@@ -249,49 +249,49 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h3 data-i18n="footer_about">عن الشركة</h3>
-                <p data-i18n="footer_about_desc">الركن السويسري لصناعة الورق الصحي والأصباغ والمنظفات. نقدم منتجات منزلية عالية الجودة منذ سنوات.</p>
+                <h3 data-i18n="footer_about">?? ??????</h3>
+                <p data-i18n="footer_about_desc">????? ???????? ?????? ????? ????? ???????? ?????????. ???? ?????? ?????? ????? ?????? ??? ?????.</p>
             </div>
             <div class="footer-col">
-                <h3 data-i18n="footer_links">روابط سريعة</h3>
-                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
-                <a href="about.html" data-i18n="nav_about">عن الشركة</a>
-                <a href="products.html" data-i18n="nav_products">المنتجات</a>
-                <a href="order.html" data-i18n="nav_order">طلب منتجات</a>
+                <h3 data-i18n="footer_links">????? ?????</h3>
+                <a href="index.html" data-i18n="nav_home">????????</a>
+                <a href="about.html" data-i18n="nav_about">?? ??????</a>
+                <a href="products.html" data-i18n="nav_products">????????</a>
+                <a href="order.html" data-i18n="nav_order">??? ??????</a>
             </div>
             <div class="footer-col">
-                <h3 data-i18n="footer_contact">تواصل معنا</h3>
-                <p>📍 المملكة الأردنية الهاشمية - الرمثا</p>
-                <p>📞 962-796009232</p>
-                <p>✉️ goldentimekw@hotmail.com</p>
+                <h3 data-i18n="footer_contact">????? ????</h3>
+                <p>?? ??????? ???????? ???????? - ??????</p>
+                <p>?? 962-796009232</p>
+                <p>?? SWISSCORNER.JORDAN@GMAIL.COM</p>
             </div>
             <div class="footer-col">
-                <h3>تابعنا</h3>
+                <h3>??????</h3>
                 <a href="https://www.facebook.com/profile.php?id=61593704157721">Facebook</a>
                 <a href="https://www.instagram.com/swisscorner.jordan/">Instagram</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 الركن السويسري. <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
+            <p>� 2026 ????? ????????. <span data-i18n="footer_rights">???? ?????? ??????</span></p>
         </div>
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/962796009232" class="whatsapp-btn" target="_blank">💬</a>
+    <a href="https://wa.me/962796009232" class="whatsapp-btn" target="_blank">??</a>
 
     <script src="js/main.js"></script>
     <script>
         const productNames = {
-            'dish-lemon-small': 'سائل جلي بنكهة الليمون حجم صغير',
-            'dish-strawberry-small': 'سائل جلي بنكهة الفراولة حجم صغير',
-            'dish-lemonmint-small': 'سائل جلي بنكهة الليمون والنعناع حجم صغير',
-            'dish-lemon-1800': 'سائل جلي بنكهة الليمون 1800 مل',
-            'dish-strawberry-1800': 'سائل جلي بنكهة الفراولة 1800 مل',
-            'belsan-perfumed': 'بيلسان معطر',
-            'belsan-kitchen-roll': 'بيلسان رول مطبخ',
-            'tissue-belsan': 'مناديل بيلسان',
-            'tissue-purple': 'مناديل أرجوان',
-            'laundry-powder': 'مسحوق غسيل بيلسان'
+            'dish-lemon-small': '???? ??? ????? ??????? ??? ????',
+            'dish-strawberry-small': '???? ??? ????? ???????? ??? ????',
+            'dish-lemonmint-small': '???? ??? ????? ??????? ???????? ??? ????',
+            'dish-lemon-1800': '???? ??? ????? ??????? 1800 ??',
+            'dish-strawberry-1800': '???? ??? ????? ???????? 1800 ??',
+            'belsan-perfumed': '?????? ????',
+            'belsan-kitchen-roll': '?????? ??? ????',
+            'tissue-belsan': '?????? ??????',
+            'tissue-purple': '?????? ??????',
+            'laundry-powder': '????? ???? ??????'
         };
         
         function updateSummary() {
@@ -305,18 +305,18 @@
             checkboxes.forEach(cb => {
                 html += `<div class="summary-item">
                     <span>${productNames[cb.value]}</span>
-                    <span>✓</span>
+                    <span>?</span>
                 </div>`;
                 count++;
             });
             
-            summaryDiv.innerHTML = html || '<p style="color: #999; text-align: center;">اختر منتجات للطلب</p>';
+            summaryDiv.innerHTML = html || '<p style="color: #999; text-align: center;">???? ?????? ?????</p>';
             totalSpan.textContent = count;
         }
         
         function submitOrder(e) {
             e.preventDefault();
-            alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
+            alert('?? ?????? ???? ?????! ??????? ??? ??????.');
         }
     </script>
 </body>
