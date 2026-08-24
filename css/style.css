@@ -11,15 +11,16 @@ img {
 }
 
 :root {
-    --primary: #0b261d;
-    --secondary: #0f2f24;
-    --accent: #183b2b;
+    --primary: #7a3b8f;
+    --secondary: #c75ba1;
+    --accent: #d9a7e0;
     --gold: #c69c52;
     --gold-light: #d9b268;
     --gold-dark: #a07d35;
     --white: #ffffff;
     --gray: #f4f1ea;
-    --text: #2d3a33;
+    --text: #4a2c52;
+    --grad: linear-gradient(135deg, #f9c9da 0%, #e3c6f5 100%);
 }
 
 body {
@@ -35,8 +36,8 @@ body.ltr {
 
 /* Header */
 header {
-    background: var(--primary);
-    color: var(--white);
+    background: var(--grad);
+    color: var(--text);
     padding: 15px 0;
     position: fixed;
     width: 100%;
@@ -59,7 +60,7 @@ header {
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: var(--white);
+    color: var(--text);
 }
 
 .logo-img {
@@ -90,7 +91,7 @@ nav ul {
 }
 
 nav a {
-    color: var(--white);
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
@@ -130,8 +131,8 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: var(--white);
+    background: var(--grad);
+    color: var(--text);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -171,7 +172,7 @@ nav a:hover {
 }
 
 .hero-text h2 span {
-    color: var(--gold);
+    color: var(--primary);
 }
 
 .hero-text p {
@@ -183,8 +184,8 @@ nav a:hover {
 
 .hero-badge {
     display: inline-block;
-    background: rgba(198, 156, 82, 0.15);
-    color: var(--gold-light);
+    background: rgba(122, 59, 143, 0.12);
+    color: var(--primary);
     padding: 8px 20px;
     border-radius: 25px;
     border: 1px solid var(--gold);
@@ -238,7 +239,7 @@ nav a:hover {
     height: 100%;
     border-radius: 50%;
     background: #fff;
-    box-shadow: 0 4px 14px rgba(11, 38, 29, 0.20);
+    box-shadow: 0 4px 14px rgba(122, 59, 143, 0.20);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -329,7 +330,7 @@ nav a:hover {
 
 .btn-secondary {
     background: transparent;
-    color: var(--white);
+    color: var(--primary);
     border: 2px solid var(--gold);
 }
 
@@ -466,7 +467,7 @@ nav a:hover {
 .product-card:hover {
     transform: translateY(-10px);
     border-color: var(--gold);
-    box-shadow: 0 15px 40px rgba(11, 38, 29, 0.2);
+    box-shadow: 0 15px 40px rgba(122, 59, 143, 0.2);
 }
 
 .product-image {
@@ -646,8 +647,8 @@ footer {
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: var(--white);
+    background: var(--grad);
+    color: var(--text);
     padding: 150px 20px 80px;
     text-align: center;
 }
@@ -696,14 +697,14 @@ footer {
 .about-slogan {
     margin-top: 25px;
     padding: 18px 22px;
-    background: linear-gradient(135deg, var(--primary), #143a2c);
+    background: linear-gradient(135deg, var(--primary), #5e2a6e);
     color: var(--gold);
     border-radius: 12px;
     font-weight: 700;
     font-size: 17px;
     line-height: 1.7;
     text-align: center;
-    box-shadow: 0 6px 18px rgba(11,38,29,0.25);
+    box-shadow: 0 6px 18px rgba(122,59,143,0.25);
 }
 
 /* Contact Form */
