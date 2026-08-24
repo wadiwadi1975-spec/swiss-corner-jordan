@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> -  </title>
+<title>منتجاتنا - الركن السويسري لصناعة الورق الصحي والأصباغ والمنظفات</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="images/icon-180.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="????? ????????">
+<meta name="apple-mobile-web-app-title" content="الركن السويسري">
 <style>
 .filter-btn{padding:10px 25px;border:2px solid var(--gold);background:transparent;color:var(--primary);border-radius:25px;cursor:pointer;font-weight:600;font-family:'Cairo',sans-serif;transition:all 0.3s;margin:5px}
 .filter-btn.active,.filter-btn:hover{background:var(--gold);color:var(--primary)}
@@ -40,28 +40,28 @@
 </head>
 <body>
 <header>
-<div class="nav-container">
-<a href="index.html" class="logo"><img src="images/logo.png" alt="الركن السويسري" class="logo-img"><div class="logo-text"><h1>الركن السويسري</h1><span>لصناعة الورق الصحي والأصباغ والمنظفات</span></div></a>
-<nav><ul>
-<li><a href="index.html"></a></li>
-<li><a href="about.html"> </a></li>
-<li><a href="products.html"></a></li>
-<li><a href="order.html"> </a></li>
-<li><a href="contact.html"> </a></li>
-</ul></nav>
-<button class="lang-switch" onclick="switchLang()">EN</button>
-                <button class="nav-toggle" aria-label="القائمة">☰</button>
-</div>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="الركن السويسري" class="logo-img"><div class="logo-text"><h1>الركن السويسري</h1><span>لصناعة الورق الصحي والأصباغ والمنظفات</span></div></a>
+        <nav><ul>
+            <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+            <li><a href="products.html" data-i18n="nav_products">منتجات</a></li>
+            <li><a href="order.html" data-i18n="nav_order">طلب عبر الإنترنت</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+        </ul></nav>
+        <button class="lang-switch" onclick="switchLang()">EN</button>
+        <button class="nav-toggle" aria-label="القائمة">☰</button>
+    </div>
 </header>
 <section class="page-header"><img src="images/logo.png" alt="الركن السويسري" class="page-logo"><p>اكتشف مجموعتنا المتنوعة من المنتجات عالية الجودة</p></section>
 <section class="products">
 <div class="filter-buttons">
-<button class="filter-btn active" onclick="filterProducts('all')"></button>
-<button class="filter-btn" onclick="filterProducts('tissues')"></button>
-<button class="filter-btn" onclick="filterProducts('dish')"> </button>
-<button class="filter-btn" onclick="filterProducts('laundry')"></button>
-<button class="filter-btn" onclick="filterProducts('kitchen')"> </button>
-<button class="filter-btn" onclick="filterProducts('fragrance')"></button>
+<button class="filter-btn active" onclick="filterProducts('all')">الكل</button>
+<button class="filter-btn" onclick="filterProducts('tissues')">الورق الصحي</button>
+<button class="filter-btn" onclick="filterProducts('dish')">سائل الجلي</button>
+<button class="filter-btn" onclick="filterProducts('laundry')">الغسيل</button>
+<button class="filter-btn" onclick="filterProducts('kitchen')">ورق المطبخ</button>
+<button class="filter-btn" onclick="filterProducts('fragrance')">المعطرات</button>
 </div>
 <div class="showcase" id="showcase">
 <img src="images/img1.png" class="active">
@@ -88,66 +88,67 @@
 <img src="images/frag3.png">
 <img src="images/frag4.png">
 <img src="images/frag5.png">
-<div class="showcase-hint">  </div>
+<div class="showcase-hint">مجموعة منتجات بيلسان</div>
 </div>
 <div class="all-products-grid" id="grid">
 
-<div class="category-header" data-cat="tissues"><h2>  - Tissues</h2></div>
-<div class="product-card" data-cat="tissues"><span class="product-type">: </span><div class="product-image bg-tissue"><img src="images/tissue1.png" alt="??????"></div><div class="product-info"><h3> </h3><p>   </p></div></div>
-<div class="product-card" data-cat="tissues"><span class="product-type">: </span><div class="product-image bg-tissue"><img src="images/tissue2.png" alt="??????"></div><div class="product-info"><h3> </h3><p>   </p></div></div>
-<div class="product-card" data-cat="tissues"><span class="product-type">: </span><div class="product-image bg-tissue"><img src="images/tissue3.png" alt="??????"></div><div class="product-info"><h3> </h3><p>   </p></div></div>
-<div class="product-card" data-cat="tissues"><span class="product-type">: </span><div class="product-image bg-tissue"><img src="images/tissue4.png" alt="??????"></div><div class="product-info"><h3> </h3><p>   </p></div></div>
-<div class="product-card" data-cat="tissues"><span class="product-type">: </span><div class="product-image bg-tissue"><img src="images/tissue5.png" alt="??????"></div><div class="product-info"><h3> </h3><p>   </p></div></div>
-<div class="product-card" data-cat="tissues"><span class="product-type">: </span><div class="product-image bg-tissue"><img src="images/tissue6.png" alt="??????"></div><div class="product-info"><h3> </h3><p>   </p></div></div>
+<div class="category-header" data-cat="tissues"><h2>الورق الصحي - Tissues</h2></div>
+<div class="product-card" data-cat="tissues"><span class="product-type">النوع: مناديل</span><div class="product-image bg-tissue"><img src="images/tissue1.png" alt="مناديل بيلسان"></div><div class="product-info"><h3>مناديل بيلسان</h3><p>ورق صحي ناعم ثلاثي الطبقات آمن على البشرة</p></div></div>
+<div class="product-card" data-cat="tissues"><span class="product-type">النوع: مناديل</span><div class="product-image bg-tissue"><img src="images/tissue2.png" alt="مناديل بيلسان فاخرة"></div><div class="product-info"><h3>مناديل بيلسان فاخرة</h3><p>نعومة فائقة ومتانة عالية للاستخدام اليومي</p></div></div>
+<div class="product-card" data-cat="tissues"><span class="product-type">النوع: مناديل</span><div class="product-image bg-tissue"><img src="images/tissue3.png" alt="مناديل بيلسان مزدوجة"></div><div class="product-info"><h3>مناديل بيلسان مزدوجة</h3><p>لفائف اقتصادية كبيرة الحجم للعائلة</p></div></div>
+<div class="product-card" data-cat="tissues"><span class="product-type">النوع: مناديل</span><div class="product-image bg-tissue"><img src="images/tissue4.png" alt="مناديل بيلسان كلاسيك"></div><div class="product-info"><h3>مناديل بيلسان كلاسيك</h3><p>خيار مثالي للمنازل والمكاتب</p></div></div>
+<div class="product-card" data-cat="tissues"><span class="product-type">النوع: مناديل</span><div class="product-image bg-tissue"><img src="images/tissue5.png" alt="مناديل بيلسان بلس"></div><div class="product-info"><h3>مناديل بيلسان بلس</h3><p>تصميم مزدوج الامتصاص لراحة أكبر</p></div></div>
+<div class="product-card" data-cat="tissues"><span class="product-type">النوع: مناديل</span><div class="product-image bg-tissue"><img src="images/tissue6.png" alt="مناديل بيلسان أكسبرت"></div><div class="product-info"><h3>مناديل بيلسان أكسبرت</h3><p>جودة عالية بأفضل قيمة سعرية</p></div></div>
 
-<div class="category-header" data-cat="dish"><h2>  - Dish Liquid</h2></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish1.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish2.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish3.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish4.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish5.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish6.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish7.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish8.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish9.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="product-card" data-cat="dish"><span class="product-type">:  </span><div class="product-image bg-dish"><img src="images/dish10.png" alt="???? ???"></div><div class="product-info"><h3>  </h3><p>   </p></div></div>
-<div class="category-header" data-cat="laundry"><h2>  - Laundry</h2></div>
-<div class="product-card" data-cat="laundry"><span class="product-type">:  </span><div class="product-image bg-laundry"><img src="images/powder1.png" alt="????? ????"></div><div class="product-info"><h3>  </h3><p>  </p></div></div>
-<div class="product-card" data-cat="laundry"><span class="product-type">:  </span><div class="product-image bg-laundry"><img src="images/powder2.png" alt="????? ????"></div><div class="product-info"><h3>  </h3><p>  </p></div></div>
-<div class="product-card" data-cat="laundry"><span class="product-type">:  </span><div class="product-image bg-laundry"><img src="images/powder3.png" alt="????? ????"></div><div class="product-info"><h3>  </h3><p>  </p></div></div>
+<div class="category-header" data-cat="dish"><h2>سائل الجلي - Dish Liquid</h2></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish1.png" alt="سائل جلي بيلسان"></div><div class="product-info"><h3>سائل جلي بيلسان</h3><p>يفك الدهون بسرعة ويحافظ على نعومة اليدين</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish2.png" alt="سائل جلي بيلسان ليمون"></div><div class="product-info"><h3>سائل جلي بيلسان ليمون</h3><p>رائحة منعشة وتنظيف قوي للأطباق</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish3.png" alt="سائل جلي بيلسان أصفر"></div><div class="product-info"><h3>سائل جلي بيلسان أصفر</h3><p>تركيز عالي لنتائج مضمونة</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish4.png" alt="سائل جلي بيلسان منعش"></div><div class="product-info"><h3>سائل جلي بيلسان منعش</h3><p>يُزيل البقع العنيدة بسهولة</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish5.png" alt="سائل جلي بيلسان زهري"></div><div class="product-info"><h3>سائل جلي بيلسان زهري</h3><p>عناية لطيفة باليدين مع تنظيف عميق</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish6.png" alt="سائل جلي بيلسان أخضر"></div><div class="product-info"><h3>سائل جلي بيلسان أخضر</h3><p>صيغة مركزة تدوم طويلاً</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish7.png" alt="سائل جلي بيلسان بلو"></div><div class="product-info"><h3>سائل جلي بيلسان بلو</h3><p>رغوة غنية وفعالية عالية</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish8.png" alt="سائل جلي بيلسان برتقالي"></div><div class="product-info"><h3>سائل جلي بيلسان برتقالي</h3><p>رائحة فواكه منعشة يومياً</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish9.png" alt="سائل جلي بيلسان أبيض"></div><div class="product-info"><h3>سائل جلي بيلسان أبيض</h3><p>نقاء ولمعان للأواني</p></div></div>
+<div class="product-card" data-cat="dish"><span class="product-type">النوع: سائل جلي</span><div class="product-image bg-dish"><img src="images/dish10.png" alt="سائل جلي بيلسان ماكس"></div><div class="product-info"><h3>سائل جلي بيلسان ماكس</h3><p>أقوى تركيبة لإزالة الدهون</p></div></div>
 
-<div class="category-header" data-cat="kitchen"><h2>  - Kitchen Rolls</h2></div>
-<div class="product-card" data-cat="kitchen"><span class="product-type">:  </span><div class="product-image bg-kitchen"><img src="images/kitchen1.png" alt="??? ????"></div><div class="product-info"><h3>  </h3><p>  -  </p></div></div>
-<div class="product-card" data-cat="kitchen"><span class="product-type">:  </span><div class="product-image bg-kitchen"><img src="images/kitchen2.png" alt="??? ????"></div><div class="product-info"><h3>  </h3><p> </p></div></div>
-<div class="product-card" data-cat="kitchen"><span class="product-type">:  </span><div class="product-image bg-kitchen"><img src="images/kitchen3.png" alt="??? ????"></div><div class="product-info"><h3>  </h3><p> </p></div></div>
-<div class="product-card" data-cat="kitchen"><span class="product-type">:  </span><div class="product-image bg-kitchen"><img src="images/kitchen4.png" alt="??? ????"></div><div class="product-info"><h3>  </h3><p> </p></div></div>
+<div class="category-header" data-cat="laundry"><h2>الغسيل - Laundry</h2></div>
+<div class="product-card" data-cat="laundry"><span class="product-type">النوع: مسحوق غسيل</span><div class="product-image bg-laundry"><img src="images/powder1.png" alt="مسحوق غسيل بيلسان"></div><div class="product-info"><h3>مسحوق غسيل بيلسان</h3><p>تنظيف عميق مع حماية الألوان</p></div></div>
+<div class="product-card" data-cat="laundry"><span class="product-type">النوع: مسحوق غسيل</span><div class="product-image bg-laundry"><img src="images/powder2.png" alt="مسحوق غسيل بيلسان أبيض"></div><div class="product-info"><h3>مسحوق غسيل بيلسان أبيض</h3><p>للغسيل الأبيض بلمعان ناصع</p></div></div>
+<div class="product-card" data-cat="laundry"><span class="product-type">النوع: مسحوق غسيل</span><div class="product-image bg-laundry"><img src="images/powder3.png" alt="مسحوق غسيل بيلسان ملون"></div><div class="product-info"><h3>مسحوق غسيل بيلسان ملون</h3><p>يحافظ على حيوية الألوان</p></div></div>
 
-<div class="category-header" data-cat="fragrance"><h2> - Fresheners</h2></div>
-<div class="product-card" data-cat="fragrance"><span class="product-type">: </span><div class="product-image bg-fragrance"><img src="images/frag1.png" alt="????"></div><div class="product-info"><h3> </h3><p>  </p></div></div>
-<div class="product-card" data-cat="fragrance"><span class="product-type">: </span><div class="product-image bg-fragrance"><img src="images/frag2.png" alt="????"></div><div class="product-info"><h3> </h3><p> </p></div></div>
-<div class="product-card" data-cat="fragrance"><span class="product-type">: </span><div class="product-image bg-fragrance"><img src="images/frag3.png" alt="????"></div><div class="product-info"><h3> </h3><p> </p></div></div>
-<div class="product-card" data-cat="fragrance"><span class="product-type">: </span><div class="product-image bg-fragrance"><img src="images/frag4.png" alt="????"></div><div class="product-info"><h3> </h3><p>  </p></div></div>
-<div class="product-card" data-cat="fragrance"><span class="product-type">: </span><div class="product-image bg-fragrance"><img src="images/frag5.png" alt="????"></div><div class="product-info"><h3> </h3><p> </p></div></div>
+<div class="category-header" data-cat="kitchen"><h2>ورق المطبخ - Kitchen Rolls</h2></div>
+<div class="product-card" data-cat="kitchen"><span class="product-type">النوع: ورق مطبخ</span><div class="product-image bg-kitchen"><img src="images/kitchen1.png" alt="ورق مطبخ بيلسان"></div><div class="product-info"><h3>ورق مطبخ بيلسان</h3><p>امتصاص عالٍ ومناديل متينة للطبخ</p></div></div>
+<div class="product-card" data-cat="kitchen"><span class="product-type">النوع: ورق مطبخ</span><div class="product-image bg-kitchen"><img src="images/kitchen2.png" alt="ورق مطبخ بيلسان رول"></div><div class="product-info"><h3>ورق مطبخ بيلسان رول</h3><p>لفائف كبيرة للاستخدام المكثف</p></div></div>
+<div class="product-card" data-cat="kitchen"><span class="product-type">النوع: ورق مطبخ</span><div class="product-image bg-kitchen"><img src="images/kitchen3.png" alt="ورق مطبخ بيلسان بلس"></div><div class="product-info"><h3>ورق مطبخ بيلسان بلس</h3><p>طبقتان لنظافة أسهل</p></div></div>
+<div class="product-card" data-cat="kitchen"><span class="product-type">النوع: ورق مطبخ</span><div class="product-image bg-kitchen"><img src="images/kitchen4.png" alt="ورق مطبخ بيلسان ماكس"></div><div class="product-info"><h3>ورق مطبخ بيلسان ماكس</h3><p>متانة فائقة لامتصاص السوائل</p></div></div>
 
-<div class="category-header" data-cat="all"><h2>  - All Products</h2></div>
-<div class="product-card" data-cat="all"><span class="product-type">: </span><span class="product-badge"></span><div class="product-image bg-all"><img src="images/img17.png" alt="???? ????????"></div><div class="product-info"><h3>  </h3><p> +  +  </p></div></div>
-<div class="product-card" data-cat="all"><span class="product-type">: </span><div class="product-image bg-all"><img src="images/img18.png" alt="???? ????????"></div><div class="product-info"><h3>  </h3><p>  </p></div></div>
-<div class="product-card" data-cat="all"><span class="product-type">: </span><div class="product-image bg-all"><img src="images/img19.png" alt="?????? ??????"></div><div class="product-info"><h3>  </h3><p> +  +  +  </p></div></div>
+<div class="category-header" data-cat="fragrance"><h2>المعطرات - Fresheners</h2></div>
+<div class="product-card" data-cat="fragrance"><span class="product-type">النوع: معطر</span><div class="product-image bg-fragrance"><img src="images/frag1.png" alt="معطر بيلسان"></div><div class="product-info"><h3>معطر بيلسان</h3><p>رائحة تدوم طويلاً لمنزل منعش</p></div></div>
+<div class="product-card" data-cat="fragrance"><span class="product-type">النوع: معطر</span><div class="product-image bg-fragrance"><img src="images/frag2.png" alt="معطر بيلسان زهري"></div><div class="product-info"><h3>معطر بيلسان زهري</h3><p>عطر زهري هادئ يملأ المكان</p></div></div>
+<div class="product-card" data-cat="fragrance"><span class="product-type">النوع: معطر</span><div class="product-image bg-fragrance"><img src="images/frag3.png" alt="معطر بيلسان ليمون"></div><div class="product-info"><h3>معطر بيلسان ليمون</h3><p>انتعاش الحمضيات في كل ركن</p></div></div>
+<div class="product-card" data-cat="fragrance"><span class="product-type">النوع: معطر</span><div class="product-image bg-fragrance"><img src="images/frag4.png" alt="معطر بيلسان خشبي"></div><div class="product-info"><h3>معطر بيلسان خشبي</h3><p>رائحة دافئة وأنيقة</p></div></div>
+<div class="product-card" data-cat="fragrance"><span class="product-type">النوع: معطر</span><div class="product-image bg-fragrance"><img src="images/frag5.png" alt="معطر بيلسان أكسبرت"></div><div class="product-info"><h3>معطر بيلسان أكسبرت</h3><p>بخاخ طويل الأثر</p></div></div>
+
+<div class="category-header" data-cat="all"><h2>جميع المنتجات - All Products</h2></div>
+<div class="product-card" data-cat="all"><span class="product-type">النوع: منتجات متنوعة</span><span class="product-badge">الأكثر مبيعاً</span><div class="product-image bg-all"><img src="images/img17.png" alt="باقة بيلسان الشاملة"></div><div class="product-info"><h3>باقة بيلسان الشاملة</h3><p>مجموعة تضم المناديل وسائل الجلي والمسحوق</p></div></div>
+<div class="product-card" data-cat="all"><span class="product-type">النوع: منتجات متنوعة</span><div class="product-image bg-all"><img src="images/img18.png" alt="باقة النظافة المنزلية"></div><div class="product-info"><h3>باقة النظافة المنزلية</h3><p>حلول متكاملة لكل احتياجات المنزل</p></div></div>
+<div class="product-card" data-cat="all"><span class="product-type">النوع: منتجات متنوعة</span><div class="product-image bg-all"><img src="images/img19.png" alt="باقة بيلسان الكاملة"></div><div class="product-info"><h3>باقة بيلسان الكاملة</h3><p>تشمل المناديل ورق المطبخ والمعطرات</p></div></div>
 
 </div>
 </section>
 
 <section class="cta">
-<h2> </h2>
-<p>       </p>
-<a href="order.html" class="btn btn-primary"> </a>
+<h2 data-i18n="cta_title"> </h2>
+<p data-i18n="cta_desc">       </p>
+<a href="order.html" class="btn btn-primary" data-i18n="cta_btn"> </a>
 </section>
 
 <footer>
 <div class="footer-grid">
-<div class="footer-col"><h3> </h3><p>      .</p></div>
-<div class="footer-col"><h3> </h3><a href="index.html"></a><a href="about.html"> </a><a href="products.html"></a><a href="order.html"> </a></div>
-<div class="footer-col"><h3> </h3><p>📍 المملكة الأردنية الهاشمية - الرمثا</p><p>📞 962-796009232</p><p>✉️ SWISSCORNER.JORDAN@GMAIL.COM</p></div>
+<div class="footer-col"><h3 data-i18n="footer_about">عن الشركة</h3><p data-i18n="footer_about_desc">      .       .</p></div>
+<div class="footer-col"><h3 data-i18n="footer_links">روابط سريعة</h3><a href="index.html" data-i18n="nav_home">الرئيسية</a><a href="about.html" data-i18n="nav_about">من نحن</a><a href="products.html" data-i18n="nav_products">منتجات</a><a href="order.html" data-i18n="nav_order">طلب عبر الإنترنت</a></div>
+<div class="footer-col"><h3>تواصل معنا</h3><p>📍 المملكة الأردنية الهاشمية - الرمثا</p><p>📞 962-796009232</p><p>✉️ SWISSCORNER.JORDAN@GMAIL.COM</p></div>
 <div class="footer-col"><h3>تابعنا</h3><a href="https://www.facebook.com/profile.php?id=61593704157721">Facebook</a><a href="https://www.instagram.com/swisscorner.jordan/">Instagram</a></div>
 </div>
 <div class="footer-bottom"><p>© 2026 الركن السويسري. جميع الحقوق محفوظة</p></div>
@@ -157,42 +158,39 @@
 <script>
 var showcaseTimer=null;
 function startShowcase(){
-var imgs=[].slice.call(document.querySelectorAll("#showcase img"));
-var i=0;
-function tick(){
-imgs.forEach(function(im){im.classList.remove("active","layer1","layer2");});
-var n=imgs.length;
-imgs[i].classList.add("active");
-imgs[(i+1)%n].classList.add("layer1");
-imgs[(i-1+n)%n].classList.add("layer2");
-i=(i+1)%n;
-}
-tick();
-if(showcaseTimer)clearInterval(showcaseTimer);
-showcaseTimer=setInterval(tick,2200);
+  var imgs=[].slice.call(document.querySelectorAll("#showcase img"));
+  var i=0;
+  function tick(){
+    imgs.forEach(function(im){im.classList.remove("active","layer1","layer2");});
+    var n=imgs.length;
+    imgs[i].classList.add("active");
+    imgs[(i+1)%n].classList.add("layer1");
+    imgs[(i-1+n)%n].classList.add("layer2");
+    i=(i+1)%n;
+  }
+  tick();
+  if(showcaseTimer)clearInterval(showcaseTimer);
+  showcaseTimer=setInterval(tick,2200);
 }
 function stopShowcase(){if(showcaseTimer)clearInterval(showcaseTimer);}
 function filterProducts(cat){
-document.querySelectorAll(".product-card").forEach(c=>{c.style.display=(cat==="all"||c.dataset.cat===cat)"block":"none"});
-document.querySelectorAll(".category-header").forEach(c=>{c.style.display=(cat==="all"||c.dataset.cat===cat)"block":"none"});
-document.querySelectorAll(".filter-btn").forEach(function(b){b.classList.remove("active");});
-if(event&&event.target)event.target.classList.add("active");
-if(cat==="all"){
-document.getElementById("showcase").style.display="block";
-document.getElementById("grid").style.display="none";
-startShowcase();
-}else{
-stopShowcase();
-document.getElementById("showcase").style.display="none";
-document.getElementById("grid").style.display="grid";
-document.querySelectorAll(".product-card").forEach(function(c){c.style.display=(c.dataset.cat===cat)"block":"none";});
-document.querySelectorAll(".category-header").forEach(function(c){c.style.display=(c.dataset.cat===cat)"block":"none";});
-}
+  document.querySelectorAll(".product-card").forEach(function(c){c.style.display=(cat==="all"||c.dataset.cat===cat)?"block":"none";});
+  document.querySelectorAll(".category-header").forEach(function(c){c.style.display=(cat==="all"||c.dataset.cat===cat)?"block":"none";});
+  document.querySelectorAll(".filter-btn").forEach(function(b){b.classList.remove("active");});
+  if(event&&event.target)event.target.classList.add("active");
+  if(cat==="all"){
+    document.getElementById("showcase").style.display="block";
+    document.getElementById("grid").style.display="none";
+    startShowcase();
+  }else{
+    stopShowcase();
+    document.getElementById("showcase").style.display="none";
+    document.getElementById("grid").style.display="grid";
+    document.querySelectorAll(".product-card").forEach(function(c){c.style.display=(c.dataset.cat===cat)?"block":"none";});
+    document.querySelectorAll(".category-header").forEach(function(c){c.style.display=(c.dataset.cat===cat)?"block":"none";});
+  }
 }
 window.addEventListener("DOMContentLoaded",function(){if(document.querySelector(".filter-btn.active"))startShowcase();});
 </script>
 </body>
 </html>
-
-
-
