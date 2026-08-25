@@ -43,6 +43,10 @@ body.ltr {
     direction: ltr;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: #E8C45A;
+}
+
 /* Header */
 header {
     background: var(--grad);
@@ -104,7 +108,7 @@ nav ul {
 }
 
 nav a {
-    color: var(--text);
+    color: #E8C45A;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
@@ -112,7 +116,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--gold);
+    color: #F4D98A;
 }
 
 .lang-switch {
@@ -413,7 +417,7 @@ nav a:hover {
 .section-title h2 {
     font-size: 36px;
     font-weight: 900;
-    color: var(--primary);
+    color: #E8C45A;
     margin-bottom: 10px;
     font-family: 'Cairo', sans-serif;
 }
@@ -453,7 +457,7 @@ nav a:hover {
 
 .feature-card h3 {
     font-size: 18px;
-    color: var(--primary);
+    color: #B8860B;
     margin-bottom: 10px;
 }
 
@@ -542,7 +546,7 @@ nav a:hover {
 
 .category-header h2 {
     font-size: 28px;
-    color: var(--primary);
+    color: #E8C45A;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -562,7 +566,7 @@ nav a:hover {
 
 .product-info h3 {
     font-size: 18px;
-    color: var(--primary);
+    color: #B8860B;
     margin-bottom: 10px;
 }
 
@@ -614,7 +618,7 @@ footer {
 }
 
 .footer-col h3 {
-    color: var(--gold);
+    color: #E8C45A;
     font-size: 18px;
     margin-bottom: 20px;
 }
@@ -697,7 +701,7 @@ footer {
 
 .about-text h2 {
     font-size: 32px;
-    color: var(--primary);
+    color: #E8C45A;
     margin-bottom: 20px;
 }
 
