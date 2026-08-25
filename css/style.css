@@ -296,16 +296,32 @@ nav a:hover {
     box-sizing: border-box;
     border-radius: 50%;
     background: var(--gray);
-    padding: 22px;
+    padding: 18px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(198, 156, 82, 0.45);
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .orbit-center img {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: auto;
+    max-height: 60%;
     object-fit: contain;
+}
+
+.orbit-center-text {
+    color: #E8C45A;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
 }
 
 @keyframes orbitSpin {
@@ -898,6 +914,10 @@ footer {
         width: 195px;
         height: 195px;
         padding: 14px;
+    }
+
+    .orbit-center-text {
+        font-size: 12px;
     }
 }
 
