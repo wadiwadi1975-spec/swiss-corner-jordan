@@ -11,23 +11,23 @@ img {
 }
 
 :root {
-    --primary: #E4DFDA;
-    --secondary: #533B54;
-    --accent: #533B54;
-    --gold: #533B54;
-    --gold-light: #E4DFDA;
-    --gold-dark: #533B54;
+    --primary: #DCDAD7;
+    --secondary: #374454;
+    --accent: #374454;
+    --gold: #374454;
+    --gold-light: #DCDAD7;
+    --gold-dark: #374454;
     --white: #ffffff;
-    --gray: rgba(83,59,84,0.22);
-    --text: #E4DFDA;
-    --grad: linear-gradient(135deg, #110624 0%, #533B54 100%);
-    --grad-soft: linear-gradient(135deg, #533B54 0%, #110624 100%);
-    --panel: rgba(83,59,84,0.18);
-    --ink: #110624;
+    --gray: rgba(55,68,84,0.22);
+    --text: #DCDAD7;
+    --grad: linear-gradient(135deg, #021430 0%, #374454 100%);
+    --grad-soft: linear-gradient(135deg, #374454 0%, #021430 100%);
+    --panel: rgba(55,68,84,0.18);
+    --ink: #021430;
 }
 
 html {
-    background: #110624;
+    background: #021430;
 }
 
 body {
@@ -589,7 +589,7 @@ nav a:hover {
 
 /* Footer */
 footer {
-    background: #110624;
+    background: #021430;
     color: var(--gold-light);
     padding: 60px 20px 30px;
 }
@@ -707,7 +707,7 @@ footer {
 .about-slogan {
     margin-top: 25px;
     padding: 18px 22px;
-    background: linear-gradient(135deg, var(--accent), #110624);
+    background: linear-gradient(135deg, var(--accent), #021430);
     color: var(--gold-light);
     border-radius: 12px;
     font-weight: 700;
@@ -846,7 +846,7 @@ footer {
         flex-direction: column;
         gap: 0;
         width: 100%;
-        background: #110624;
+        background: #021430;
         padding: 8px 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
