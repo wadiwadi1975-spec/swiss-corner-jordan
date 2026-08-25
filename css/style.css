@@ -11,23 +11,23 @@ img {
 }
 
 :root {
-    --primary: #EDECEA;
-    --secondary: #C3B4A6;
-    --accent: #60435D;
-    --gold: #C3B4A6;
-    --gold-light: #E9E7E4;
-    --gold-dark: #9C8378;
+    --primary: #E4DFDA;
+    --secondary: #533B54;
+    --accent: #533B54;
+    --gold: #533B54;
+    --gold-light: #E4DFDA;
+    --gold-dark: #533B54;
     --white: #ffffff;
-    --gray: #1A0A2E;
-    --text: #EDECEA;
-    --grad: linear-gradient(135deg, #150829 0%, #1D0934 100%);
-    --grad-soft: linear-gradient(135deg, #1D0934 0%, #331749 100%);
-    --panel: rgba(237,236,234,0.06);
-    --ink: #150829;
+    --gray: rgba(83,59,84,0.22);
+    --text: #E4DFDA;
+    --grad: linear-gradient(135deg, #110624 0%, #533B54 100%);
+    --grad-soft: linear-gradient(135deg, #533B54 0%, #110624 100%);
+    --panel: rgba(83,59,84,0.18);
+    --ink: #110624;
 }
 
 html {
-    background: #150829;
+    background: #110624;
 }
 
 body {
@@ -328,7 +328,7 @@ nav a:hover {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent) 0%, #331749 100%);
+    background: var(--accent);
     color: var(--gold-light);
 }
 
@@ -589,7 +589,7 @@ nav a:hover {
 
 /* Footer */
 footer {
-    background: #150829;
+    background: #110624;
     color: var(--gold-light);
     padding: 60px 20px 30px;
 }
@@ -707,7 +707,7 @@ footer {
 .about-slogan {
     margin-top: 25px;
     padding: 18px 22px;
-    background: linear-gradient(135deg, var(--accent), #331749);
+    background: linear-gradient(135deg, var(--accent), #110624);
     color: var(--gold-light);
     border-radius: 12px;
     font-weight: 700;
@@ -846,7 +846,7 @@ footer {
         flex-direction: column;
         gap: 0;
         width: 100%;
-        background: #150829;
+        background: #110624;
         padding: 8px 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
