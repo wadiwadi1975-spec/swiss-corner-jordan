@@ -11,16 +11,23 @@ img {
 }
 
 :root {
-    --primary: #7a3b8f;
-    --secondary: #c75ba1;
-    --accent: #d9a7e0;
-    --gold: #c69c52;
-    --gold-light: #d9b268;
-    --gold-dark: #a07d35;
+    --primary: #EDECEA;
+    --secondary: #C3B4A6;
+    --accent: #60435D;
+    --gold: #C3B4A6;
+    --gold-light: #E9E7E4;
+    --gold-dark: #9C8378;
     --white: #ffffff;
-    --gray: #f4f1ea;
-    --text: #4a2c52;
-    --grad: linear-gradient(135deg, #fde4ee 0%, #f9c9da 100%);
+    --gray: #1A0A2E;
+    --text: #EDECEA;
+    --grad: linear-gradient(135deg, #150829 0%, #1D0934 100%);
+    --grad-soft: linear-gradient(135deg, #1D0934 0%, #331749 100%);
+    --panel: rgba(237,236,234,0.06);
+    --ink: #150829;
+}
+
+html {
+    background: #150829;
 }
 
 body {
@@ -28,6 +35,8 @@ body {
     direction: rtl;
     line-height: 1.6;
     color: var(--text);
+    background: var(--grad);
+    min-height: 100vh;
 }
 
 body.ltr {
@@ -68,7 +77,7 @@ header {
     height: 55px;
     object-fit: contain;
     border-radius: 12px;
-    background: white;
+    background: var(--panel);
     padding: 4px;
 }
 
@@ -238,8 +247,8 @@ nav a:hover {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 4px 14px rgba(122, 59, 143, 0.20);
+    background: var(--gold-light);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -282,7 +291,7 @@ nav a:hover {
     height: 390px;
     box-sizing: border-box;
     border-radius: 50%;
-    background: #fff;
+    background: var(--gray);
     padding: 22px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(198, 156, 82, 0.45);
@@ -319,24 +328,25 @@ nav a:hover {
 }
 
 .btn-primary {
-    background: var(--gold);
-    color: var(--primary);
+    background: linear-gradient(135deg, var(--accent) 0%, #331749 100%);
+    color: var(--gold-light);
 }
 
 .btn-primary:hover {
-    background: var(--white);
+    background: var(--gold-light);
+    color: var(--ink);
     transform: translateY(-3px);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary);
+    color: var(--gold-light);
     border: 2px solid var(--gold);
 }
 
 .btn-secondary:hover {
     background: var(--gold);
-    color: var(--primary);
+    color: var(--ink);
 }
 
 .hero-image {
@@ -461,7 +471,7 @@ nav a:hover {
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     transition: all 0.3s;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--gold);
 }
 
 .product-card:hover {
@@ -560,8 +570,8 @@ nav a:hover {
 
 /* CTA Section */
 .cta {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: var(--white);
+    background: var(--grad-soft);
+    color: var(--gold-light);
     padding: 80px 20px;
     text-align: center;
 }
@@ -579,8 +589,8 @@ nav a:hover {
 
 /* Footer */
 footer {
-    background: var(--primary);
-    color: var(--white);
+    background: #150829;
+    color: var(--gold-light);
     padding: 60px 20px 30px;
 }
 
@@ -601,7 +611,7 @@ footer {
 
 .footer-col p,
 .footer-col a {
-    color: rgba(255,255,255,0.7);
+    color: rgba(237,236,234,0.75);
     text-decoration: none;
     font-size: 14px;
     line-height: 2;
@@ -697,8 +707,8 @@ footer {
 .about-slogan {
     margin-top: 25px;
     padding: 18px 22px;
-    background: linear-gradient(135deg, var(--primary), #5e2a6e);
-    color: var(--gold);
+    background: linear-gradient(135deg, var(--accent), #331749);
+    color: var(--gold-light);
     border-radius: 12px;
     font-weight: 700;
     font-size: 17px;
@@ -732,7 +742,7 @@ footer {
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--gold);
     border-radius: 8px;
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
@@ -779,7 +789,7 @@ footer {
 .order-item input[type="number"] {
     width: 80px;
     padding: 8px;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--gold);
     border-radius: 5px;
     text-align: center;
 }
@@ -836,7 +846,7 @@ footer {
         flex-direction: column;
         gap: 0;
         width: 100%;
-        background: var(--primary);
+        background: #150829;
         padding: 8px 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
@@ -909,7 +919,7 @@ footer {
     max-height: 92%;
     border-radius: 14px;
     box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
-    background: #fff;
+    background: var(--gray);
     object-fit: contain;
 }
 
