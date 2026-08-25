@@ -625,7 +625,7 @@ footer {
 
 .footer-col p,
 .footer-col a {
-    color: rgba(237,236,234,0.75);
+    color: #E8C45A;
     text-decoration: none;
     font-size: 14px;
     line-height: 2;
@@ -633,7 +633,7 @@ footer {
 }
 
 .footer-col a:hover {
-    color: var(--gold);
+    color: #F4D98A;
 }
 
 .footer-bottom {
