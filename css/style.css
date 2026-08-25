@@ -342,25 +342,25 @@ nav a:hover {
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: var(--gold-light);
+    background: #E8C45A;
+    color: #021430;
 }
 
 .btn-primary:hover {
-    background: var(--gold-light);
-    color: var(--ink);
+    background: #F4D98A;
+    color: #021430;
     transform: translateY(-3px);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--gold-light);
-    border: 2px solid var(--gold);
+    color: #E8C45A;
+    border: 2px solid #E8C45A;
 }
 
 .btn-secondary:hover {
-    background: var(--gold);
-    color: var(--ink);
+    background: #E8C45A;
+    color: #021430;
 }
 
 .hero-image {
