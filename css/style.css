@@ -313,10 +313,20 @@ nav a:hover {
 }
 
 .orbit-center img {
-    width: 72%;
+    width: 60%;
     height: auto;
-    max-height: 72%;
+    max-height: 60%;
     object-fit: contain;
+}
+
+.orbit-center-text {
+    color: #E8C45A;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
 }
 
 @keyframes orbitSpin {
@@ -921,6 +931,10 @@ footer {
         width: 195px;
         height: 195px;
         padding: 14px;
+    }
+
+    .orbit-center-text {
+        font-size: 12px;
     }
 }
 
