@@ -20,8 +20,8 @@ img {
     --white: #ffffff;
     --gray: rgba(55,68,84,0.22);
     --text: #DCDAD7;
-    --grad: linear-gradient(135deg, #021430 0%, #374454 100%);
-    --grad-soft: linear-gradient(135deg, #374454 0%, #021430 100%);
+    --grad: linear-gradient(135deg, #021430 0%, #0B3A7A 50%, #374454 100%);
+    --grad-soft: linear-gradient(135deg, #374454 0%, #0B3A7A 50%, #021430 100%);
     --panel: rgba(55,68,84,0.18);
     --ink: #021430;
 }
