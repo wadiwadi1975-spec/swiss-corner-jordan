@@ -16,11 +16,11 @@ img {
     --secondary: #374454;
     --accent: #374454;
     --gold: #374454;
-    --gold-light: #DCDAD7;
+    --gold-light: #E8C45A;
     --gold-dark: #374454;
     --white: #ffffff;
     --gray: rgba(55,68,84,0.22);
-    --text: #DCDAD7;
+    --text: #E8C45A;
     --grad: linear-gradient(135deg, #021430 0%, #0B3A7A 50%, #374454 100%);
     --grad-soft: linear-gradient(135deg, #374454 0%, #0B3A7A 50%, #021430 100%);
     --panel: rgba(55,68,84,0.18);
@@ -140,7 +140,7 @@ nav a:hover {
     display: none;
     background: transparent;
     border: none;
-    color: var(--white);
+    color: #E8C45A;
     font-size: 28px;
     cursor: pointer;
     padding: 4px 10px;
@@ -761,7 +761,7 @@ footer {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--primary);
+    color: #021430;
 }
 
 .form-group input,
@@ -772,6 +772,7 @@ footer {
     border-radius: 8px;
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
+    color: #021430;
     transition: border-color 0.3s;
 }
 
@@ -953,7 +954,7 @@ footer {
     position: absolute;
     top: 18px;
     left: 28px;
-    color: #fff;
+    color: #E8C45A;
     font-size: 46px;
     font-weight: 700;
     line-height: 1;
