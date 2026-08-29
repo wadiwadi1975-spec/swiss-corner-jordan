@@ -9,6 +9,10 @@ public class Idle {
   [DllImport("kernel32.dll")]
   public static extern uint GetTickCount();
 }
+public class F {
+  [DllImport("user32.dll")]
+  public static extern bool SetForegroundWindow(IntPtr h);
+}
 "@
 
 function Get-IdleSeconds {
@@ -26,15 +30,17 @@ while ($true) {
   Start-Sleep -Seconds 4
   try {
     $idle = Get-IdleSeconds
-    # هل نافذة الساعة مفتوحة؟ (نبحث عن عمليات Edge تحمل رابط الصفحة)
     $clock = Get-CimInstance Win32_Process -Filter "Name='msedge.exe'" -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -like "*prayer-clock*" }
     $isOpen = $clock.Count -gt 0
     if (-not $isOpen -and $idle -ge $idleLimit) {
-      Start-Process $edge -ArgumentList "--start-fullscreen", $page | Out-Null
+      $si = New-Object System.Diagnostics.ProcessStartInfo("cmd.exe")
+      $si.Arguments = '/c start "" "' + $edge + '" --start-fullscreen "' + $page + '"'
+      $si.WindowStyle = [System.Diagnostics.ProcessWindowStyle]::Hidden
+      [System.Diagnostics.Process]::Start($si) | Out-Null
     }
     elseif ($isOpen -and $idle -lt 5) {
-      foreach ($p in $clock) {
-        & taskkill.exe /PID $p.ProcessId /T /F | Out-Null
+      foreach ($c in $clock) {
+        & taskkill.exe /PID $c.ProcessId /T /F | Out-Null
       }
     }
   } catch { }
