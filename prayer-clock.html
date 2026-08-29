@@ -66,14 +66,26 @@
     font-variant-numeric: tabular-nums;
   }
   .seconds { font-size: 0.35em; color: #e8c45a; vertical-align: super; }
-  .next-box {
+  .next-wrap {
     margin-top: 2.4vh;
+    display: flex;
+    gap: 1.5vw;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .next-box {
     background: rgba(212,175,90,0.12);
     border: 1px solid rgba(212,175,90,0.4);
     border-radius: 18px;
     padding: 1.6vh 2vw;
     display: inline-block;
+    min-width: 240px;
   }
+  .iqamah-box {
+    background: rgba(120,200,255,0.12);
+    border-color: rgba(120,200,255,0.45);
+  }
+  .iqamah-box .next-name { color: #bfe3ff; }
   .next-label { font-size: clamp(14px, 1.6vw, 22px); color: #c9d8cf; }
   .next-name { font-size: clamp(22px, 3vw, 40px); font-weight: 800; color: #e8c45a; }
   .countdown { font-size: clamp(20px, 2.6vw, 38px); font-weight: 700; color: #fff; margin-top: 4px; font-variant-numeric: tabular-nums; }
@@ -96,6 +108,7 @@
   }
   .prayer .pname { font-size: clamp(18px, 2.2vw, 32px); font-weight: 700; }
   .prayer .ptime { font-size: clamp(18px, 2.2vw, 32px); font-weight: 800; font-variant-numeric: tabular-nums; }
+  .prayer .ptime small { display: block; font-size: 0.52em; color: #9fb3a8; font-weight: 600; margin-top: 2px; }
   .prayer.active {
     background: linear-gradient(135deg, #e8c45a 0%, #c79a2e 100%);
     border-color: #e8c45a;
@@ -125,10 +138,17 @@
   <main>
     <div class="clock-box">
       <div class="clock" id="clock">--:--<span class="seconds" id="secs">00</span></div>
-      <div class="next-box">
-        <div class="next-label">الصلاة القادمة</div>
-        <div class="next-name" id="nextName">—</div>
-        <div class="countdown" id="countdown">--:--:--</div>
+      <div class="next-wrap">
+        <div class="next-box">
+          <div class="next-label">الصلاة القادمة (الأذان)</div>
+          <div class="next-name" id="nextName">—</div>
+          <div class="countdown" id="countdown">--:--:--</div>
+        </div>
+        <div class="next-box iqamah-box">
+          <div class="next-label">الإقامة القادمة</div>
+          <div class="next-name" id="nextIqName">—</div>
+          <div class="countdown" id="countdownIq">--:--:--</div>
+        </div>
       </div>
     </div>
     <div class="prayers" id="prayers"></div>
@@ -147,7 +167,8 @@ var CFG = {
   lng: 47.96,       // خط الطول
   tz: 3,            // فرق التوقيت عن UTC (الكويت +3، بدون توقيت صيفي)
   method: "Makkah", // Makkah = أم القرى (الكويت/السعودية). جرّب "MWL" أو "ISNA" أو "Egypt" أو "Karachi"
-  hanafi: false     // false=شافعي (أساسي) ، true=حنفي للعصر
+  hanafi: false,    // false=شافعي (أساسي) ، true=حنفي للعصر
+  iqamah: { fajr:15, dhuhr:15, asr:15, maghrib:10, isha:10 } // دقائق الإقامة بعد الأذان
 };
 
 /* ===================== دوال رياضية ===================== */
@@ -278,10 +299,12 @@ function render(){
   var now=nowDecimal();
   var activeKey=null;
   ORDER.forEach(function(k){
-    if(k==="sunrise") return; // لا نعرض الشروق كصلاة أساسية
+    if(k==="sunrise") return;
+    var off=CFG.iqamah[k];
+    var iqT=times[k]+off/60;
     var div=document.createElement("div");
     div.className="prayer";
-    div.innerHTML='<span class="pname">'+AR_NAMES[k]+'</span><span class="ptime">'+fmt(times[k])+'</span>';
+    div.innerHTML='<span class="pname">'+AR_NAMES[k]+'</span><span class="ptime">'+fmt(times[k])+'<small>إقامة '+fmt(iqT)+'</small></span>';
     wrap.appendChild(div);
   });
   // تحديد الصلاة الحالية/القادمة
@@ -296,6 +319,17 @@ function render(){
     var tmr=new Date(); tmr.setDate(tmr.getDate()+1);
     nextTime=computeTimes(tmr).fajr+24; // لحساب الفرق عبر منتصف الليل
   }
+  // أحداث الإقامة (الأذان + عدد دقائق الإقامة)
+  var iqEvents=[["fajr",times.fajr+CFG.iqamah.fajr/60],["dhuhr",times.dhuhr+CFG.iqamah.dhuhr/60],["asr",times.asr+CFG.iqamah.asr/60],["maghrib",times.maghrib+CFG.iqamah.maghrib/60],["isha",times.isha+CFG.iqamah.isha/60]];
+  var nextIq=null, nextIqTime=null;
+  for(var i=0;i<iqEvents.length;i++){
+    if(nextIq===null && now<iqEvents[i][1]){ nextIq=iqEvents[i][0]; nextIqTime=iqEvents[i][1]; }
+  }
+  if(nextIq===null){
+    nextIq="fajr";
+    var tmr2=new Date(); tmr2.setDate(tmr2.getDate()+1);
+    nextIqTime=computeTimes(tmr2).fajr+CFG.iqamah.fajr/60+24;
+  }
   // تلوين الصلاة الحالية
   var cards=wrap.children;
   var idx=0;
@@ -304,12 +338,18 @@ function render(){
     if(k===activeKey && now<(nextTime!==null?nextTime:24)){ cards[idx].classList.add("active"); }
     idx++;
   });
-  // الصلاة القادمة + العد التنازلي
+  // الصلاة القادمة (الأذان) + العد التنازلي
   document.getElementById("nextName").textContent=AR_NAMES[next];
   var diff=nextTime-now;
   if(diff<0) diff+=24;
   var dh=Math.floor(diff), dm=Math.floor((diff-dh)*60), ds=Math.floor((((diff-dh)*60)-dm)*60);
   document.getElementById("countdown").textContent=pad(dh)+":"+pad(dm)+":"+pad(ds);
+  // الإقامة القادمة + العد التنازلي
+  document.getElementById("nextIqName").textContent=AR_NAMES[nextIq];
+  var diffIq=nextIqTime-now;
+  if(diffIq<0) diffIq+=24;
+  var di=Math.floor(diffIq), dmi=Math.floor((diffIq-di)*60), dsi=Math.floor((((diffIq-di)*60)-dmi)*60);
+  document.getElementById("countdownIq").textContent=pad(di)+":"+pad(dmi)+":"+pad(dsi);
 }
 
 document.getElementById("mName").textContent=CFG.name;
