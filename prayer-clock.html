@@ -16,7 +16,7 @@
   .screen {
     height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr auto auto;
     padding: 2.2vh 3vw;
   }
   /* Header */
@@ -131,6 +131,30 @@
     text-shadow: 0 2px 8px rgba(0,0,0,0.9);
   }
   .fullscreen-hint { position: fixed; bottom: 8px; left: 10px; font-size: 11px; opacity:0.4; cursor:pointer; }
+
+  /* شريط تنبيه متحرك */
+  .ticker {
+    grid-row: 4;
+    overflow: hidden;
+    white-space: nowrap;
+    background: linear-gradient(90deg, rgba(212,175,90,0.92), rgba(199,154,46,0.92));
+    color: #06231b;
+    font-size: clamp(15px, 2vw, 26px);
+    font-weight: 800;
+    padding: 1.1vh 0;
+    border-top: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 0 -4px 18px rgba(0,0,0,0.4);
+  }
+  .ticker-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker-scroll 16s linear infinite;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.35);
+  }
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
 </style>
 </head>
 <body>
@@ -163,6 +187,10 @@
   </main>
 
   <footer>ساعة مواقيت محلية — تعمل بدون إنترنت | اضغط مزدوجاً للملء الشاشة</footer>
+
+  <div class="ticker" aria-label="تنبيه">
+    <span class="ticker-text">حفاظاً على خشوعك وخشوع المصليين نرجو إغلاق الهاتف النقال أو جعله صامتاً</span>
+  </div>
 </div>
 <div class="fullscreen-hint" onclick="document.documentElement.requestFullscreen && document.documentElement.requestFullscreen()">⛶ ملء الشاشة</div>
 
