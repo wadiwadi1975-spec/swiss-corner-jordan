@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ساعة مواقيت الصلاة - نوير الرشيدي</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Segoe UI', Tahoma, 'Gadugi', 'Noto Naskh Arabic', sans-serif;
+    background: radial-gradient(circle at 50% 0%, #0c3b2e 0%, #06231b 60%, #03130e 100%);
+    color: #f3e9c6;
+    overflow: hidden;
+  }
+  .screen {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 2.2vh 3vw;
+  }
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(212,175,90,0.35);
+    padding-bottom: 1.4vh;
+  }
+  .mosque-name {
+    font-size: clamp(22px, 3.4vw, 46px);
+    font-weight: 800;
+    color: #e8c45a;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .mosque-loc {
+    font-size: clamp(12px, 1.4vw, 20px);
+    color: #c9d8cf;
+    opacity: 0.85;
+    margin-top: 4px;
+  }
+  .hijri {
+    text-align: left;
+    font-size: clamp(14px, 1.8vw, 26px);
+    color: #e8c45a;
+    line-height: 1.6;
+  }
+  .hijri .greg { color: #c9d8cf; opacity: 0.8; font-size: 0.8em; display:block; }
+
+  /* Main */
+  main {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4vw;
+    align-items: center;
+    padding: 2vh 0;
+  }
+  .clock-box { text-align: center; }
+  .clock {
+    font-size: clamp(70px, 16vw, 230px);
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.45);
+    font-variant-numeric: tabular-nums;
+  }
+  .seconds { font-size: 0.35em; color: #e8c45a; vertical-align: super; }
+  .next-box {
+    margin-top: 2.4vh;
+    background: rgba(212,175,90,0.12);
+    border: 1px solid rgba(212,175,90,0.4);
+    border-radius: 18px;
+    padding: 1.6vh 2vw;
+    display: inline-block;
+  }
+  .next-label { font-size: clamp(14px, 1.6vw, 22px); color: #c9d8cf; }
+  .next-name { font-size: clamp(22px, 3vw, 40px); font-weight: 800; color: #e8c45a; }
+  .countdown { font-size: clamp(20px, 2.6vw, 38px); font-weight: 700; color: #fff; margin-top: 4px; font-variant-numeric: tabular-nums; }
+
+  /* Prayers list */
+  .prayers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4vh 2vw;
+    align-content: center;
+  }
+  .prayer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 1.5vh 1.6vw;
+  }
+  .prayer .pname { font-size: clamp(18px, 2.2vw, 32px); font-weight: 700; }
+  .prayer .ptime { font-size: clamp(18px, 2.2vw, 32px); font-weight: 800; font-variant-numeric: tabular-nums; }
+  .prayer.active {
+    background: linear-gradient(135deg, #e8c45a 0%, #c79a2e 100%);
+    border-color: #e8c45a;
+  }
+  .prayer.active .pname, .prayer.active .ptime { color: #06231b; }
+
+  footer {
+    text-align: center;
+    font-size: clamp(11px, 1.2vw, 16px);
+    color: #9fb3a8;
+    opacity: 0.7;
+    padding-top: 1vh;
+  }
+  .fullscreen-hint { position: fixed; bottom: 8px; left: 10px; font-size: 11px; opacity:0.4; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="screen">
+  <header>
+    <div>
+      <div class="mosque-name" id="mName">نوير الرشيدي</div>
+      <div class="mosque-loc" id="mLoc"></div>
+    </div>
+    <div class="hijri" id="hijri"></div>
+  </header>
+
+  <main>
+    <div class="clock-box">
+      <div class="clock" id="clock">--:--<span class="seconds" id="secs">00</span></div>
+      <div class="next-box">
+        <div class="next-label">الصلاة القادمة</div>
+        <div class="next-name" id="nextName">—</div>
+        <div class="countdown" id="countdown">--:--:--</div>
+      </div>
+    </div>
+    <div class="prayers" id="prayers"></div>
+  </main>
+
+  <footer>ساعة مواقيت محلية — تعمل بدون إنترنت | اضغط مزدوجاً للملء الشاشة</footer>
+</div>
+<div class="fullscreen-hint" onclick="document.documentElement.requestFullscreen && document.documentElement.requestFullscreen()">⛶ ملء الشاشة</div>
+
+<script>
+/* ===================== إعدادات المسجد ===================== */
+var CFG = {
+  name: "نوير الرشيدي",
+  location: "المنطقة الفروانية - قطعة 5",
+  lat: 29.28,       // خط العرض للفروانية
+  lng: 47.96,       // خط الطول
+  tz: 3,            // فرق التوقيت عن UTC (الكويت +3، بدون توقيت صيفي)
+  method: "Makkah", // Makkah = أم القرى (الكويت/السعودية). جرّب "MWL" أو "ISNA" أو "Egypt" أو "Karachi"
+  hanafi: false     // false=شافعي (أساسي) ، true=حنفي للعصر
+};
+
+/* ===================== دوال رياضية ===================== */
+function dtr(d){return d*Math.PI/180;}
+function rtd(r){return r*180/Math.PI;}
+function mod(a,n){return ((a%n)+n)%n;}
+function sin(d){return Math.sin(dtr(d));}
+function cos(d){return Math.cos(dtr(d));}
+function tan(d){return Math.tan(dtr(d));}
+function asin(d){return rtd(Math.asin(d));}
+function acos(d){return rtd(Math.acos(d));}
+function atan(d){return rtd(Math.atan(d));}
+function atan2(y,x){return rtd(Math.atan2(y,x));}
+
+function julian(y,m,d){
+  if(m<=2){y-=1;m+=12;}
+  var A=Math.floor(y/100), B=2-A+Math.floor(A/4);
+  return Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+d+B-1524.5;
+}
+function sunPosition(jd){
+  var D=jd-2451545.0;
+  var g=mod(357.529+0.98560028*D,360);
+  var q=mod(280.459+0.98564736*D,360);
+  var L=q+1.915*sin(g)+0.020*sin(2*g);
+  var e=23.439-0.00000036*D;
+  var RA=atan2(cos(e)*sin(L),cos(L))/15;
+  var eqt=q/15-RA;
+  var decl=asin(sin(e)*sin(L));
+  return {declination:decl, equation:eqt};
+}
+function methodParams(method){
+  switch(method){
+    case 'MWL':     return {fajr:18, isha:17};
+    case 'ISNA':    return {fajr:15, isha:15};
+    case 'Egypt':   return {fajr:19.5, isha:17.5};
+    case 'Makkah':  return {fajr:18.5, ishaMin:90};
+    case 'Karachi': return {fajr:18, isha:18};
+    case 'Tehran':  return {fajr:17.7, isha:14};
+    default:        return {fajr:18, isha:17};
+  }
+}
+function computeTimes(date){
+  var jd=julian(date.getFullYear(),date.getMonth()+1,date.getDate());
+  var mp=methodParams(CFG.method);
+  var lat=CFG.lat, lng=CFG.lng, tz=CFG.tz, shafaq=CFG.hanafi?2:1;
+  function sunDecl(t){return sunPosition(jd+t/24).declination;}
+  function sunEqt(t){return sunPosition(jd+t/24).equation;}
+  function midDay(t){return 12+(tz-lng/15)-sunEqt(t);}
+  function timeAngle(angle,t,dir){
+    var decl=sunDecl(t), noon=midDay(t);
+    var v=(-sin(angle)-sin(decl)*sin(lat))/(cos(decl)*cos(lat));
+    v=Math.max(-1,Math.min(1,v));
+    return noon+dir*(1/15)*acos(v);
+  }
+  function asrTime(t){
+    var decl=sunDecl(t), noon=midDay(t);
+    var x=Math.abs(lat-decl);
+    var cot=(CFG.hanafi?2:1)+tan(x);
+    var alt=atan(1/cot);
+    var v=(sin(alt)-sin(lat)*sin(decl))/(cos(lat)*cos(decl));
+    v=Math.max(-1,Math.min(1,v));
+    return noon+(1/15)*acos(v);
+  }
+  var t=12+(tz-lng/15);
+  var fajr=timeAngle(mp.fajr,t,-1);
+  var sunrise=timeAngle(0.833,t,-1);
+  var dhuhr=midDay(t);
+  var asr=asrTime(t);
+  var maghrib=timeAngle(0.833,t,1);
+  var isha = mp.ishaMin ? maghrib+mp.ishaMin/60 : timeAngle(mp.isha,t,1);
+  return {fajr:fajr, sunrise:sunrise, dhuhr:dhuhr, asr:asr, maghrib:maghrib, isha:isha};
+}
+
+/* ===================== التاريخ الهجري (أم القرى) ===================== */
+function toHijri(date){
+  var y=date.getFullYear(), m=date.getMonth()+1, d=date.getDate();
+  if(m<3){y-=1;m+=12;}
+  var A=Math.floor(y/100), B=2-A+Math.floor(A/4);
+  var jd=Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+d+B-1524;
+  var z=jd-1948440+10632;
+  var q=Math.floor(z/10631);
+  var r=z-10631*q;
+  var j=Math.floor((r-28)/29.5);
+  var hDay=20+r-29*j;
+  var hMonth=Math.floor((11*j+4)/30)+1;   // تقريب أم القرى
+  var hYear=30*q+j-30;
+  var names=["محرم","صفر","ربيع الأول","ربيع الآخر","جمادى الأولى","جمادى الآخرة","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة"];
+  return hDay+" "+names[hMonth-1]+" "+hYear+" هـ";
+}
+var gregNames=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+var weekNames=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+
+/* ===================== العرض ===================== */
+var AR_NAMES={fajr:"الفجر",sunrise:"الشروق",dhuhr:"الظهر",asr:"العصر",maghrib:"المغرب",isha:"العشاء"};
+var ORDER=["fajr","sunrise","dhuhr","asr","maghrib","isha"];
+
+function pad(n){n=Math.floor(n);return (n<10?"0":"")+n;}
+function fmt(t){
+  if(isNaN(t)) return "--:--";
+  var h=Math.floor(t)%24; if(h<0)h+=24;
+  var m=Math.floor((t-Math.floor(t))*60);
+  return pad(h)+":"+pad(m);
+}
+function nowDecimal(){var d=new Date();return d.getHours()+d.getMinutes()/60+d.getSeconds()/3600;}
+
+var cachedDay=null, times=null;
+function ensureTimes(){
+  var d=new Date();
+  var key=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+  if(key!==cachedDay){ cachedDay=key; times=computeTimes(d); }
+}
+
+function render(){
+  ensureTimes();
+  var d=new Date();
+  // الساعة
+  document.getElementById("clock").firstChild.nodeValue=pad(d.getHours())+":"+pad(d.getMinutes());
+  document.getElementById("secs").textContent=pad(d.getSeconds());
+
+  // التاريخ
+  var hij=toHijri(d);
+  var greg=weekNames[d.getDay()]+" "+d.getDate()+" "+gregNames[d.getMonth()]+" "+d.getFullYear();
+  document.getElementById("hijri").innerHTML=hij+'<span class="greg">'+greg+'</span>';
+
+  // الصلوات
+  var wrap=document.getElementById("prayers");
+  wrap.innerHTML="";
+  var now=nowDecimal();
+  var activeKey=null;
+  ORDER.forEach(function(k){
+    if(k==="sunrise") return; // لا نعرض الشروق كصلاة أساسية
+    var div=document.createElement("div");
+    div.className="prayer";
+    div.innerHTML='<span class="pname">'+AR_NAMES[k]+'</span><span class="ptime">'+fmt(times[k])+'</span>';
+    wrap.appendChild(div);
+  });
+  // تحديد الصلاة الحالية/القادمة
+  var prayers=[["fajr",times.fajr],["dhuhr",times.dhuhr],["asr",times.asr],["maghrib",times.maghrib],["isha",times.isha]];
+  var next=null, nextTime=null;
+  for(var i=0;i<prayers.length;i++){
+    if(now>=prayers[i][1]){ activeKey=prayers[i][0]; }
+    if(next===null && now<prayers[i][1]){ next=prayers[i][0]; nextTime=prayers[i][1]; }
+  }
+  if(next===null){ // بعد العشاء -> الفجر غداً
+    next="fajr";
+    var tmr=new Date(); tmr.setDate(tmr.getDate()+1);
+    nextTime=computeTimes(tmr).fajr+24; // لحساب الفرق عبر منتصف الليل
+  }
+  // تلوين الصلاة الحالية
+  var cards=wrap.children;
+  var idx=0;
+  ORDER.forEach(function(k){
+    if(k==="sunrise") return;
+    if(k===activeKey && now<(nextTime!==null?nextTime:24)){ cards[idx].classList.add("active"); }
+    idx++;
+  });
+  // الصلاة القادمة + العد التنازلي
+  document.getElementById("nextName").textContent=AR_NAMES[next];
+  var diff=nextTime-now;
+  if(diff<0) diff+=24;
+  var dh=Math.floor(diff), dm=Math.floor((diff-dh)*60), ds=Math.floor((((diff-dh)*60)-dm)*60);
+  document.getElementById("countdown").textContent=pad(dh)+":"+pad(dm)+":"+pad(ds);
+}
+
+document.getElementById("mName").textContent=CFG.name;
+document.getElementById("mLoc").textContent=CFG.location;
+document.addEventListener("dblclick",function(){ if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); });
+render();
+setInterval(render,1000);
+</script>
+</body>
+</html>
