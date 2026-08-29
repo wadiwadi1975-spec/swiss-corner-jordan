@@ -18,19 +18,24 @@ function Get-IdleSeconds {
   return ([Idle]::GetTickCount() - $li.dwTime) / 1000.0
 }
 
-$idleLimit = 120   # ثانيتان قبل ظهور الساعة (عدّلها كما تريد)
+$idleLimit = 30   # ثانية قبل ظهور الساعة (عدّلها كما تريد)
 $page = "file:///C:/Users/DELL/Desktop/pictures/website/prayer-clock.html"
-$runningPid = $null
+$edge = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
 while ($true) {
   Start-Sleep -Seconds 4
-  $idle = Get-IdleSeconds
-  if ($null -eq $runningPid -and $idle -ge $idleLimit) {
-    $p = Start-Process "msedge.exe" -ArgumentList "--start-fullscreen", $page -PassThru
-    $runningPid = $p.Id
-  }
-  elseif ($null -ne $runningPid -and $idle -lt 5) {
-    & taskkill.exe /PID $runningPid /T /F | Out-Null
-    $runningPid = $null
-  }
+  try {
+    $idle = Get-IdleSeconds
+    # هل نافذة الساعة مفتوحة؟ (نبحث عن عمليات Edge تحمل رابط الصفحة)
+    $clock = Get-CimInstance Win32_Process -Filter "Name='msedge.exe'" -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -like "*prayer-clock*" }
+    $isOpen = $clock.Count -gt 0
+    if (-not $isOpen -and $idle -ge $idleLimit) {
+      Start-Process $edge -ArgumentList "--start-fullscreen", $page | Out-Null
+    }
+    elseif ($isOpen -and $idle -lt 5) {
+      foreach ($p in $clock) {
+        & taskkill.exe /PID $p.ProcessId /T /F | Out-Null
+      }
+    }
+  } catch { }
 }
