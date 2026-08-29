@@ -9,7 +9,7 @@
   html, body { height: 100%; }
   body {
     font-family: 'Segoe UI', Tahoma, 'Gadugi', 'Noto Naskh Arabic', sans-serif;
-    background: linear-gradient(rgba(3,19,14,0.45), rgba(3,19,14,0.55)), url("../images/mosque-bg.png") center/cover no-repeat fixed;
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.60)), url("../images/mosque-bg.jpg") center/cover no-repeat fixed;
     color: #f3e9c6;
     overflow: hidden;
   }
@@ -31,13 +31,14 @@
     font-size: clamp(22px, 3.4vw, 46px);
     font-weight: 800;
     color: #e8c45a;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.9);
   }
   .mosque-loc {
     font-size: clamp(12px, 1.4vw, 20px);
-    color: #c9d8cf;
-    opacity: 0.85;
+    color: #eef3ef;
+    opacity: 0.95;
     margin-top: 4px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
   }
   .masjid-link {
     display: inline-block;
@@ -55,8 +56,12 @@
     font-size: clamp(14px, 1.8vw, 26px);
     color: #e8c45a;
     line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.35);
+    padding: 8px 14px;
+    border-radius: 12px;
   }
-  .hijri .greg { color: #c9d8cf; opacity: 0.8; font-size: 0.8em; display:block; }
+  .hijri .greg { color: #eef3ef; opacity: 0.9; font-size: 0.8em; display:block; }
 
   /* Main */
   main {
@@ -73,7 +78,7 @@
     letter-spacing: 2px;
     color: #ffffff;
     line-height: 1;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.45);
+    text-shadow: 0 4px 24px rgba(0,0,0,0.9);
     font-variant-numeric: tabular-nums;
   }
   .seconds { font-size: 0.35em; color: #e8c45a; vertical-align: super; }
@@ -85,21 +90,22 @@
     flex-wrap: wrap;
   }
   .next-box {
-    background: rgba(212,175,90,0.12);
-    border: 1px solid rgba(212,175,90,0.4);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(212,175,90,0.55);
     border-radius: 18px;
     padding: 1.6vh 2vw;
     display: inline-block;
     min-width: 240px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.5);
   }
   .iqamah-box {
-    background: rgba(120,200,255,0.12);
-    border-color: rgba(120,200,255,0.45);
+    background: rgba(0,0,0,0.5);
+    border-color: rgba(120,200,255,0.6);
   }
   .iqamah-box .next-name { color: #bfe3ff; }
-  .next-label { font-size: clamp(14px, 1.6vw, 22px); color: #c9d8cf; }
-  .next-name { font-size: clamp(22px, 3vw, 40px); font-weight: 800; color: #e8c45a; }
-  .countdown { font-size: clamp(20px, 2.6vw, 38px); font-weight: 700; color: #fff; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .next-label { font-size: clamp(14px, 1.6vw, 22px); color: #eef3ef; text-shadow: 0 2px 8px rgba(0,0,0,0.9); }
+  .next-name { font-size: clamp(22px, 3vw, 40px); font-weight: 800; color: #e8c45a; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
+  .countdown { font-size: clamp(20px, 2.6vw, 38px); font-weight: 700; color: #fff; margin-top: 4px; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
 
   /* Prayers list */
   .prayers {
@@ -112,14 +118,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(212,175,90,0.35);
     border-radius: 14px;
     padding: 1.5vh 1.6vw;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
   }
-  .prayer .pname { font-size: clamp(18px, 2.2vw, 32px); font-weight: 700; }
-  .prayer .ptime { font-size: clamp(18px, 2.2vw, 32px); font-weight: 800; font-variant-numeric: tabular-nums; }
-  .prayer .ptime small { display: block; font-size: 0.52em; color: #9fb3a8; font-weight: 600; margin-top: 2px; }
+  .prayer .pname { font-size: clamp(18px, 2.2vw, 32px); font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.85); }
+  .prayer .ptime { font-size: clamp(18px, 2.2vw, 32px); font-weight: 800; font-variant-numeric: tabular-nums; text-shadow: 0 2px 8px rgba(0,0,0,0.85); }
+  .prayer .ptime small { display: block; font-size: 0.52em; color: #cfe3d6; font-weight: 600; margin-top: 2px; }
   .prayer.active {
     background: linear-gradient(135deg, #e8c45a 0%, #c79a2e 100%);
     border-color: #e8c45a;
@@ -129,9 +136,10 @@
   footer {
     text-align: center;
     font-size: clamp(11px, 1.2vw, 16px);
-    color: #9fb3a8;
-    opacity: 0.7;
+    color: #eef3ef;
+    opacity: 0.9;
     padding-top: 1vh;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
   }
   .fullscreen-hint { position: fixed; bottom: 8px; left: 10px; font-size: 11px; opacity:0.4; cursor:pointer; }
 </style>
